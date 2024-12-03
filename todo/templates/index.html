@@ -13,7 +13,7 @@
         <ul>{% for todo in todo %}
             <li>
                 <p><strong>item : {{todo.id}} </strong> {{todo.title}} <strong>completed :</strong> {{todo.completed}} <a class="btn" href="/completed/{{todo.id}}">completed?</a></p>
-
+                <p>date and time : {{todo.date}}</p>
             </li>
             {% endfor %}
         </ul>
