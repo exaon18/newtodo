@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add your todo</title>
+</head>
+<body>
+    <div>
+        {% for msg in messages %}
+        <p class="messages">{{msg}}</p>
+        {% endfor %}
+        <ul>{% for todo in todo %}
+            <li>
+                <p><strong>item : {{todo.id}} </strong> {{todo.title}} <strong>completed :</strong> {{todo.completed}} <a class="btn" href="/completed/{{todo.id}}">completed?</a></p>
+
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <strong> Add your todo here </strong>
+    <form method="post" action="{%url 'index'%}">
+        {% csrf_token %}
+        <input type="text" name="item_name">
+        <button type="submit">Add</button>
+    </form>
+</body>
+<script>
+let msg=document.querySelector('.btn').addEventListener('click',function(e){
+    for(i=5;i>0;i--){
+        console.log(i);
+
+        if (i ===0){
+            document.querySelector('.messages').innerHTML='';
+        }
+        else{
+            continue;
+        }
+    }
+    
+});
+
+</script>
+</html>
